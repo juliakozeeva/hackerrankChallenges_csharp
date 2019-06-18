@@ -1,0 +1,35 @@
+using System;
+using System.Collections.Generic;
+using System.IO;
+class Solution {
+    static void Main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution */
+        int n = Convert.ToInt32(Console.ReadLine());
+        Dictionary<string, int> phoneBook = new Dictionary <string, int>();
+        myDictionary(n, phoneBook);
+    }
+
+    static void myDictionary(int num, Dictionary<string, int> phoneBook) {
+        for (int i = 0; i < num; i++) {
+            string [] inputValue = Console.ReadLine().Split(' ');
+            string name = inputValue[0];
+            int phoneNumber = Convert.ToInt32(inputValue[1]);
+            phoneBook.Add(name, phoneNumber);
+        }
+
+        for (int j = 0; j < num; j++) {
+            string check = Console.ReadLine();
+            if (phoneBook.ContainsKey(check))
+            {
+                int output = phoneBook[check];
+                Console.WriteLine("{0}={1}", check, output);
+            }
+            else
+                {
+                Console.WriteLine("Not found");
+            }
+        }
+
+    }
+}
+
